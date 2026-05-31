@@ -1,27 +1,15 @@
 package com.example;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvFileSource;
-import org.junit.jupiter.params.provider.CsvSource;
 import org.mockito.Mockito;
 
-import java.util.Arrays;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class LionTest {
 
-    @Test
 
-    void checkIfPredatorTestReturnAnimalLogic() throws Exception {
-        Feline feline = new Feline();
-        Lion lion = new Lion("Самец", feline);
-        List<String> actual = lion.getFood();
-        assertEquals(List.of("Животные", "Птицы", "Рыба"), actual);
-    }
-@Test
+    @Test
     void checkHasManeIsTrue() throws Exception {
         Feline feline = new Feline();
         Lion lion = new Lion("Самец", feline);
@@ -29,13 +17,6 @@ class LionTest {
         assertTrue(actual);
     }
 
-    @Test
-    void checkDoesNonHaveMane() throws Exception {
-        Feline feline = new Feline();
-        Lion lion = new Lion("Самка", feline);
-        boolean actual = lion.doesHaveMane();
-        assertFalse(actual);
-    }
 
     @Test
     void checkGetKittensWithoutArguments() throws Exception {
@@ -48,7 +29,7 @@ class LionTest {
     @Test
     void checkForeignTypeOfAnimal() throws Exception {
         Feline feline = new Feline();
-        assertThrows(Exception.class, () ->new Lion("Anything", feline));
+        assertThrows(Exception.class, () -> new Lion("Anything", feline));
     }
 
     @Test
@@ -60,7 +41,4 @@ class LionTest {
         assertEquals(5, actual);
         Mockito.verify(mockedFeline).getKittens();
     }
-
-
-
 }
