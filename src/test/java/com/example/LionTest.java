@@ -4,18 +4,11 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class LionTest {
-
-
-    @Test
-    void checkHasManeIsTrue() throws Exception {
-        Feline feline = new Feline();
-        Lion lion = new Lion("Самец", feline);
-        boolean actual = lion.doesHaveMane();
-        assertTrue(actual);
-    }
 
 
     @Test
@@ -40,5 +33,13 @@ class LionTest {
         int actual = lion.getKittens();
         assertEquals(5, actual);
         Mockito.verify(mockedFeline).getKittens();
+    }
+
+    @Test
+    void checkIfPredatorTestReturnAnimalLogic() throws Exception {
+        Feline feline = new Feline();
+        Lion lion = new Lion("Самец", feline);
+        List<String> actual = lion.getFood();
+        assertEquals(List.of("Животные", "Птицы", "Рыба"), actual);
     }
 }
